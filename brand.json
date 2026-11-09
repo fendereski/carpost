@@ -1,0 +1,21 @@
+{
+  "name": "مرزخودرو",
+  "name_sub": "واردات خودرو | منطقه آزاد اینچه‌برون",
+  "logo": "brand/marzkhodro-white.png",
+  "accent": "#e0b454",
+  "accent_fg": "#111111",
+  "tag": "واردات مستقیم",
+  "handle": "@marzkhodro",
+  "website": "marzkhodro.com",
+  "instagram": "marzkhodro",
+  "telegram": "",
+  "phones": [
+    "0912 000 0000",
+    "017 0000 0000"
+  ],
+  "address": "",
+  "headline": "برای مشاوره و استعلام قیمت <em>همین حالا</em> تماس بگیرید",
+  "lead": "تحویل با سند کمپانی و پلاک منطقه آزاد",
+  "foot_right": "مرزخودرو | واردات خودرو منطقه آزاد",
+  "persian_digits": true
+}
