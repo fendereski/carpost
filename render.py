@@ -26,7 +26,8 @@ car.json — written by Claude from the owner's specs text (see RULES.md / RUN.m
   contact      true/false (default true) -> last slide with phones / IG / site + "comment the code"
 
 brand.json: name, name_sub, logo (white PNG, shown top-right on EVERY slide), accent, accent_fg, tag, handle,
-            website, phones[], instagram, telegram, address, lead, foot_right, persian_digits
+            website, phones[] (strings, or {"number", "label"} e.g. label "واتساپ"), instagram, telegram,
+            address, lead, foot_right, persian_digits
 """
 import json, os, re, sys, argparse, pathlib, html
 from playwright.sync_api import sync_playwright
@@ -302,7 +303,10 @@ def build_contact(car, brand):
     pd = brand.get("persian_digits", True)
     rows = []
     for ph in brand.get("phones", []):
-        rows.append(f'<div class="row"><div class="ico">{ICONS["phone"]}</div><div class="txt"><div class="big latin">{esc(ph)}</div><div class="small">تماس و واتساپ</div></div></div>')
+        # a phone is either "0912 000 0000" or {"number": "...", "label": "واتساپ"}
+        number = ph["number"] if isinstance(ph, dict) else ph
+        label = (ph.get("label") if isinstance(ph, dict) else None) or "تماس و واتساپ"
+        rows.append(f'<div class="row"><div class="ico">{ICONS["phone"]}</div><div class="txt"><div class="big latin">{esc(number)}</div><div class="small">{esc(label)}</div></div></div>')
     if brand.get("instagram"):
         rows.append(f'<div class="row"><div class="ico">{ICONS["instagram"]}</div><div class="txt"><div class="big latin">@{esc(brand["instagram"])}</div><div class="small">اینستاگرام</div></div></div>')
     if brand.get("telegram"):
