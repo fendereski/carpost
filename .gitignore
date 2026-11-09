@@ -1,0 +1,15 @@
+# runtime / per-run data — never committed
+jobs/
+out/
+in/
+dist/
+__pycache__/
+*.pyc
+templates/_base.css
+test/norm/
+registry_backup.json
+bundle.json
+bundle.zip
+.carpost/
+send_telegram.py
+_npm/
