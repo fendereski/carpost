@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="base.css">
+<style>
+  .shade-bottom { height: 30%; }
+  .shade-top { height: 18%; }
+  .label {
+    position: absolute; right: 48px; bottom: 44px;
+    display: flex; align-items: center; gap: 14px;
+    background: var(--glass); border: 1.5px solid var(--glass-border);
+    backdrop-filter: blur(14px); border-radius: 999px; padding: 12px 26px 12px 22px;
+    font-size: 28px; font-weight: 700;
+  }
+  .label .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
+  .topleft { position: absolute; top: 44px; left: 48px; display: flex; align-items: center; gap: 12px; direction: ltr; }
+  .counter {
+    background: rgba(0,0,0,0.45); border: 1.5px solid rgba(255,255,255,0.18);
+    border-radius: 999px; padding: 8px 18px; font-size: 22px; font-weight: 700; direction: ltr;
+  }
+  .code { direction: rtl; font-size: 22px; padding: 8px 18px; }
+  .code b { font-size: 25px; }
+  .mini-brand { position: absolute; top: 44px; right: 48px; display: flex; align-items: center; gap: 12px; }
+  .mini-brand img { height: 48px; width: auto; max-width: 220px; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6)); }
+  .mini-brand span { font-size: 28px; font-weight: 900; text-shadow: 0 2px 10px rgba(0,0,0,0.7); }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="photo-bg" style="background-image:url('{{photo}}')"></div>
+  <img class="photo" src="{{photo}}" alt="">
+  <div class="shade-top"></div>
+  <div class="shade-bottom"></div>
+  <div class="mini-brand">{{mini_brand_html}}</div>
+  <div class="topleft"><div class="counter">{{counter}}</div>{{code_html}}</div>
+  {{label_html}}
+  <div class="wm-plain">{{handle}}</div>
+</div>
+</body>
+</html>
