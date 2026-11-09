@@ -1,0 +1,101 @@
+@font-face { font-family: "Vazirmatn"; src: url("../fonts/Vazirmatn-Regular.woff2") format("woff2"); font-weight: 400; }
+@font-face { font-family: "Vazirmatn"; src: url("../fonts/Vazirmatn-Medium.woff2") format("woff2"); font-weight: 500; }
+@font-face { font-family: "Vazirmatn"; src: url("../fonts/Vazirmatn-Bold.woff2") format("woff2"); font-weight: 700; }
+@font-face { font-family: "Vazirmatn"; src: url("../fonts/Vazirmatn-Black.woff2") format("woff2"); font-weight: 900; }
+
+:root {
+  --bg: #0b0f14;
+  --fg: #ffffff;
+  --muted: rgba(255,255,255,0.72);
+  --accent: {{accent}};
+  --accent-fg: {{accent_fg}};
+  --glass: rgba(10, 14, 20, 0.55);
+  --glass-border: rgba(255,255,255,0.18);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1350px; overflow: hidden; background: var(--bg); }
+body {
+  font-family: "Vazirmatn", "DejaVu Sans", sans-serif;
+  color: var(--fg);
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01";
+}
+.slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; }
+.latin { direction: ltr; unicode-bidi: isolate; font-feature-settings: normal; }
+
+/* photo layers */
+.photo-bg {
+  position: absolute; inset: -40px;
+  background-size: cover; background-position: center;
+  filter: blur(28px) brightness(0.55) saturate(1.1);
+  transform: scale(1.1);
+}
+.photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: {{fit}};
+  object-position: {{focus}};
+}
+.shade-top {
+  position: absolute; left: 0; right: 0; top: 0; height: 34%;
+  background: linear-gradient(to bottom, rgba(5,8,12,0.78) 0%, rgba(5,8,12,0.35) 55%, rgba(5,8,12,0) 100%);
+}
+.shade-bottom {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 46%;
+  background: linear-gradient(to top, rgba(5,8,12,0.96) 0%, rgba(5,8,12,0.80) 30%, rgba(5,8,12,0.35) 65%, rgba(5,8,12,0) 100%);
+}
+
+/* brand bar */
+.brandbar {
+  position: absolute; top: 44px; right: 56px; left: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand { display: flex; align-items: center; gap: 18px; }
+.brand img { height: 74px; width: auto; max-width: 240px; object-fit: contain; }
+.brand .name { font-size: 40px; font-weight: 900; letter-spacing: -0.5px; }
+.brand .sub { font-size: 20px; color: var(--muted); font-weight: 500; margin-top: 2px; }
+/* logo variant: wide wordmark on top, sub-line underneath (right-aligned) */
+.brand.stack { flex-direction: column; align-items: flex-end; gap: 8px; }
+.brand.stack img { height: 64px; max-width: 300px; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.55)); }
+.brand .sub.under { font-size: 18px; letter-spacing: 0.2px; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
+.tagrow { display: flex; align-items: center; gap: 12px; }
+.tag {
+  background: var(--accent); color: var(--accent-fg);
+  font-weight: 700; font-size: 22px; padding: 10px 22px; border-radius: 999px;
+}
+.code {
+  background: #ffffff; color: #0b0f14;
+  font-weight: 700; font-size: 24px; padding: 9px 20px; border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+.code b { font-weight: 900; font-size: 28px; }
+
+/* glass badge */
+.badge {
+  position: absolute;
+  display: flex; align-items: center; gap: 16px;
+  background: var(--glass); border: 1.5px solid var(--glass-border);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-radius: 22px; padding: 16px 22px 16px 20px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+.badge .ico {
+  width: 64px; height: 64px; flex: 0 0 64px;
+  display: grid; place-items: center;
+  background: var(--accent); color: var(--accent-fg); border-radius: 16px;
+}
+.badge .ico svg { width: 38px; height: 38px; }
+.badge .val { font-size: 34px; font-weight: 900; line-height: 1.05; }
+.badge .lbl { font-size: 19px; color: var(--muted); font-weight: 500; margin-top: 4px; }
+
+/* watermark */
+.wm {
+  position: absolute; bottom: 34px; left: 44px;
+  display: flex; align-items: center; gap: 12px; opacity: 0.85;
+  direction: ltr;
+}
+.wm img { height: 44px; width: auto; max-width: 150px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6)); }
+.wm span { font-size: 22px; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.7); }
+.wm-plain { position: absolute; bottom: 36px; left: 44px; font-size: 22px; font-weight: 700; opacity: 0.8; text-shadow: 0 2px 8px rgba(0,0,0,0.7); direction: ltr; }
