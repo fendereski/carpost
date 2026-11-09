@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="base.css">
+<style>
+  .title-block { position: absolute; right: 56px; left: 56px; bottom: 150px; }
+  .title-row { display: flex; align-items: baseline; gap: 22px; flex-wrap: wrap; }
+  .title { font-size: 84px; font-weight: 900; line-height: 1.08; letter-spacing: -1px; text-shadow: 0 4px 24px rgba(0,0,0,0.55); }
+  .year { align-self: center; background: var(--accent); color: var(--accent-fg); font-weight: 900; font-size: 34px; padding: 6px 20px; border-radius: 14px; }
+  .model-en { font-size: 30px; color: var(--muted); font-weight: 500; margin-top: 10px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .options { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+  .opt { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.10); border: 1.5px solid rgba(255,255,255,0.22); border-radius: 999px; padding: 10px 20px 10px 22px; font-size: 25px; font-weight: 700; backdrop-filter: blur(8px); }
+  .opt svg { width: 26px; height: 26px; color: var(--accent); }
+  .pricebox { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 10px 18px; margin-top: 24px;
+              background: rgba(224,180,84,0.14); border: 2px solid var(--accent); border-radius: 22px; padding: 14px 24px; }
+  .plabel { font-size: 24px; font-weight: 700; color: var(--accent); }
+  .pval { font-size: 44px; font-weight: 900; color: #fff; line-height: 1.1; }
+  .pterms { flex-basis: 100%; font-size: 24px; font-weight: 500; color: var(--muted); margin-top: 2px; }
+  .cover-wm { position: absolute; bottom: 44px; right: 56px; left: 56px; display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 22px; font-weight: 500; }
+  .cover-wm .latin { font-weight: 700; color: #fff; opacity: 0.9; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="photo-bg" style="background-image:url('{{photo}}')"></div>
+  <img class="photo" src="{{photo}}" alt="">
+  <div class="shade-top"></div>
+  <div class="shade-bottom"></div>
+
+  <div class="brandbar">
+    {{brand_html}}
+    {{tag_html}}
+  </div>
+
+  {{badges_html}}
+
+  <div class="title-block">
+    <div class="title-row">
+      <div class="title">{{title}}</div>
+      {{year_html}}
+    </div>
+    {{model_en_html}}
+    {{options_html}}
+    {{price_html}}
+  </div>
+
+  <div class="cover-wm">
+    <span>{{footer_right}}</span>
+    <span class="latin">{{footer_left}}</span>
+  </div>
+</div>
+</body>
+</html>
